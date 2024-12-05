@@ -34,9 +34,18 @@
     window.onload = function() {
       // Check if the URL contains "nowgg.lol"
       if (window.location.pathname.includes('nowgg.lol')) {
-        document.querySelector('iframe').style.display = 'block'; // Show iframe
+        const iframe = document.querySelector('iframe');
+        iframe.style.display = 'block'; // Show iframe
         document.querySelector('.error-message').style.display = 'none'; // Hide error message
-        document.querySelector('iframe').src = 'https://live.on.cybertv.tv/embed.html#https://nowgg.lol';
+        iframe.src = 'https://live.on.cybertv.tv/embed.html#https://nowgg.lol';
+        
+        // Reload iframe if it gets blocked
+        iframe.onload = function() {
+          if (iframe.contentWindow.length === 0) {
+            document.querySelector('.error-message').innerText = 'Unable to load content.';
+            iframe.style.display = 'none';
+          }
+        };
       }
     };
   </script>
