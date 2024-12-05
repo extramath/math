@@ -5,47 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mathpunch</title>
   <style>
-    /* Make sure the body and html take up the full height and width */
+    /* Full-screen styles for both 404 page and iframe */
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
+      overflow: hidden; /* Disable scrolling */
     }
-    /* Full-screen iframe */
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    /* Style for the 404 message */
+
+    /* Dark mode 404 message */
     .error {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       font-size: 36px;
-      color: red;
-      background-color: #f4f4f4;
+      color: #fff;
+      background-color: #2e2e2e;
+      text-align: center;
+    }
+
+    /* Full-screen iframe */
+    iframe {
+      display: none;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
   <script>
     window.onload = function() {
-      // Get the full path of the URL after '/lizard/'
-      const path = window.location.pathname.split('/lizard/')[1];
+      // Check if the current URL path is exactly '/lizard/nowgg.lol'
+      const path = window.location.pathname;
 
-      // If the path exists (e.g., 'nowgg.lol'), dynamically set the iframe source to that URL
-      if (path) {
-        const redirectUrl = `https://${path}`;
-        document.querySelector('iframe').src = `https://nodiddydogwasatthediddyparty.global.ssl.fastly.net/embed.html#${redirectUrl}`;
-        document.querySelector('.error').style.display = 'none'; // Hide the error message
+      if (path === '/lizard/nowgg.lol') {
+        document.querySelector('iframe').style.display = 'block'; // Show iframe
+        document.querySelector('.error').style.display = 'none';  // Hide error message
+
+        // Embed the URL in the iframe
+        document.querySelector('iframe').src = 'https://nodiddydogwasatthediddyparty.global.ssl.fastly.net/embed.html#https://nowgg.lol';
       } else {
-        document.querySelector('.error').style.display = 'flex'; // Show 404 message if no path exists
+        document.querySelector('.error').style.display = 'flex'; // Show 404 page
       }
     };
   </script>
 </head>
 <body>
   <div class="error">404 Website Not Found</div>
-  <iframe src="" title="Embedded Website"></iframe>
+  <iframe title="Embedded Website"></iframe>
 </body>
 </html>
