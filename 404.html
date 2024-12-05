@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mathpunch</title>
+  <title>404 Not Found</title>
   <style>
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
       overflow: hidden; /* Disable scrolling */
-    }
-
-    .error {
+      background-color: #2e2e2e;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-size: 36px;
-      color: #fff;
-      background-color: #2e2e2e;
       text-align: center;
+      font-family: Arial, sans-serif;
     }
 
     iframe {
@@ -29,23 +25,24 @@
       height: 100%;
       border: none;
     }
+
+    .error-message {
+      font-size: 24px;
+    }
   </style>
   <script>
     window.onload = function() {
-      const path = window.location.pathname;
-
-      if (path === '/lizard/nowgg.lol') {
-        document.querySelector('iframe').style.display = 'block';
-        document.querySelector('.error').style.display = 'none';
-        document.querySelector('iframe').src = 'https://nodiddydogwasatthediddyparty.global.ssl.fastly.net/embed.html#https://nowgg.lol';
-      } else {
-        document.querySelector('.error').style.display = 'flex';
+      // Check if the URL contains "nowgg.lol"
+      if (window.location.pathname.includes('nowgg.lol')) {
+        document.querySelector('iframe').style.display = 'block'; // Show iframe
+        document.querySelector('.error-message').style.display = 'none'; // Hide error message
+        document.querySelector('iframe').src = 'https://live.on.cybertv.tv/embed.html#https://nowgg.lol';
       }
     };
   </script>
 </head>
 <body>
-  <div class="error">404 Website Not Found</div>
+  <div class="error-message">404 Website Not Found</div>
   <iframe title="Embedded Website"></iframe>
 </body>
 </html>
