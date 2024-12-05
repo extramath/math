@@ -9,39 +9,21 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      overflow: hidden; /* Disable scrolling */
       background-color: #2e2e2e;
       color: #fff;
       font-family: Arial, sans-serif;
     }
 
-    #loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 24px;
-    }
-
     iframe {
-      display: none;
       width: 100%;
       height: 100%;
       border: none;
     }
   </style>
-  <script>
-    window.onload = function() {
-      const iframe = document.querySelector('iframe');
-      iframe.onload = function() {
-        document.querySelector('#loading').style.display = 'none';
-        iframe.style.display = 'block';
-      };
-    };
-  </script>
 </head>
 <body>
-  <div id="loading">Loading...</div>
+  <!-- Embed iframe directly with the URL -->
   <iframe src="https://live.on.cybertv.tv/embed.html#https://nowgg.lol" title="Embedded Website"></iframe>
 </body>
 </html>
